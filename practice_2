@@ -1,0 +1,94 @@
+var_1 = 10
+var_2 = 3.14
+result = int(var_1 + var_2)
+print (result)
+
+#Question 2:
+
+#Write a Python program to concatenate the two string types."""
+
+#string1 = "Hello"
+#string2 = "World"
+
+        # String contatenation + 
+string_1 = "Hello"
+string_2 = "World"
+print((string_1) + (" ") + (string_2))
+
+
+#Question 3:
+
+#Maria bought 96 toys priced equally for €12960. The amount of $1015 is still left with her. Find the cost of each toy and the amount she had. 
+#Write a Python program to calculate the cost of each toy.""" 
+
+# write your code here
+
+#string formatting####
+
+price_per_toy = 12960 // 96
+print(f"€{price_per_toy}")
+amount_she_had = 12960 + 1015
+print(f"€{amount_she_had}")
+
+#Question 4:
+
+#Write a Python program to split the words in the sentence. And then print the length of the of the words created."""
+
+#sentence = "Python is an awesome language"
+#words = ...       # write your code
+
+sentence = "python is an awesome language"
+#words = # Split the sentence into words
+words = sentence.split()
+print(words)
+length_of_words = list(map(len, sentence.split()))  
+print(length_of_words)  
+
+#Question 6:
+
+#replace the world with "Python" and display the result. """
+
+#string = "Hello, World!"
+#string = ...
+#print(string)
+
+# write your code here
+
+string = "Hello, World!"
+new_string = string.replace("World!", "Python!")
+print(new_string)
+
+#Question 7: 
+
+#pick the "mango" and value 3 for this question. """
+
+#fruits = ("apple", "dates", "mango", [1, 2, 3])
+
+# write your code here
+
+fruits = ("apple", "dates", "mango", [1,2,3])
+print(fruits[2], fruits[3][2])
+
+#Question 8:
+
+#pick "value2" from the dictionary. """
+
+#dict_values = {"key1": "value1", "key2": "value2"}
+dict_val = {"key1": "value1", "key2": "value2"}
+print(dict_val["key2"])
+
+#Question 9:
+
+
+#reassign "mango" with "dates". """
+
+#d_nested = {1: {'innerKey': [23, 45, "mango"]}}
+
+#write your code here
+
+d_nested = {1: {'innerKey': [23, 45, "mango"]}}
+d_nested [1] ['innerKey'][-1] = "dates"
+print(d_nested)
+
+
+
