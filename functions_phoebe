@@ -1,0 +1,342 @@
+#1 inbuilt functions include print() len() int() etc
+
+#2AUSER DEFINED FUNCTIONS USING DEF ()
+#def function_name(parameters):
+    # code block
+    #return result
+
+#Example
+
+def greet():
+    print("hi, this is a defined function")
+
+#call the function
+greet()
+
+#output
+#hi, this is a defined function
+
+#PRACTICE
+def display_message():
+   print("I am learning all about defining a function in Python!")
+
+display_message()
+
+#PRACTICE 2
+def favourite_book(title):
+   print(f"One of my favourite books is {title}.")
+
+favourite_book ("Alice in Wonderland")
+
+#2b DEFINED FUNCTIONS WITH PARAMETERS
+
+def greet(name):
+    print(f"Hi, {name}!")
+
+#call the function
+greet("Phoebe")
+
+#output
+#Hi Phoebe!
+
+#2c DEFINED FUNCTION WITH RETURN VALUE
+
+def add(a,b):
+    return a + b
+
+result = (3 + 5)
+print(result)
+
+#output = 8
+
+#3 FUNCTIONS WITH *ARGS (VARIABLE POSITIONAL ARGUMENTS) - it packs all additional arguments into a tuple
+
+def add_all(*args):
+   total = 0 #starting value is 0
+   for num in args:
+      total += num 
+      return (total)
+ 
+print(add_all(2, 4, 6))
+
+# FUNCTIONS WITH **KWARGS (keyword arguments)
+
+def print_info(**kwargs):
+   for key, value in kwargs.items():
+      print(f"{key}: {value}")
+   
+   print_info(name= "Phoebe", Age= 34, City= "Denia")
+
+   #output
+   #name: Phoebe
+   #Age: 34
+   #City: Denia
+
+   #PRACTICE 1. Write a function greet_all that takes *args and prints "Hello, [name]!" for each name.
+   #greet_all("John", "Jane", "Sam")
+
+def greet(*args):
+      for name in args:
+         print(f"Hello {name}!")
+
+greet("Phoebe", "Joshua", "Enzo")
+
+    #PRACTICE 2 
+ 
+def even_or_odd(number):
+   if number %2 == 0:
+      return "Even"
+   else:
+      return "odd" 
+
+print(even_or_odd(2))
+
+#PRACTICE 2 (USING *ARGS) - JOSHUA HELP! (WHAT HAVE I LEFT OUT OR DONE INCORRECTLY?)
+
+def even_or_odd(*args):
+    for value in args:  # temporary variable 
+    # decision -> even  
+        if value %2 == 0:
+            return "even"
+        else:
+            return "odd"
+    print("last value stored: ", value)
+    
+print(even_or_odd(2, 4, 5, 7))
+
+#POSITIONAL ARGUMENT - the order matters in the parameters
+def describe_pet(animal_type, pet_name):
+    print(f"I have a {animal_type}")
+    print(f"My {animal_type}'s name is {pet_name}.")
+
+describe_pet("Dog", "Donna")
+describe_pet("Cat", "Suzy") #MULTIPLE FUNCTION CALLS
+
+
+#KEYWORD ARGUEMTNS - the order doesnt matter here
+
+def describe_pet1 (animal_type1, pet_name1):
+    print(f"I have a {animal_type1}")
+    print(f"my {animal_type1}'s name is {pet_name1}.")
+
+describe_pet1(animal_type1="zebra", pet_name1="zazu")
+describe_pet1(pet_name1= "fluffy", animal_type1= "kangaroo") #the order doesnt matter here as we are defining each paramenter
+
+#DEFAULT VALUES
+
+def movie_description (movie_name, movie_theme = "thriller"):
+    print(f"my favourite movie genre is {movie_theme}, and my favourite movie is {movie_name}!")
+
+movie_description("jaws") #python accepts the default movie_theme "thriller" and no other value was given when calling the function. 
+
+#8.3 positional & keyword arguments
+def make_shirt(size, message_printed):
+    print(f"shirt size is {size} & message = {message_printed}.")
+
+make_shirt(42, "surfs up!") #postional arguments
+make_shirt(message_printed="lets go surfing", size=44)
+
+#8.4 making arguments default
+def make_shirt1(size1="large", message_printed1="i love python"):
+    print(f"shirt size is {size1} and the message reads = {message_printed1}")
+
+make_shirt1() #default arguements
+make_shirt1(message_printed1="python is hard") #one default value and one keyword value
+
+#RETURNING A SIMPLE VALUE
+
+def get_formatted_name(first_name, last_name):
+    full_name = f"{first_name} {last_name}" #what you want the function to do
+    return full_name.title() #what you want it to return
+
+musician = get_formatted_name("phoebe", "lucas")
+print(musician)
+
+#MAKING AN ARGUMENT OPTIONAL
+
+#middle name optional Phoebe Kate Lucas OR Phoebe Lucas
+
+def get_formatted_namae1(first_name1, last_name1, middle_name=""):
+    if middle_name:
+        full_name1 = f"{first_name1}, {middle_name}, {last_name1}"
+    else:
+        full_name1 = f"{first_name1} {last_name1}"
+    return full_name1.title()
+
+musician = get_formatted_namae1 ("Phoebe", "lucas")
+print(musician)
+
+#RETURNING A DICTIONARY
+
+def build_person (first_name2, last_name2):
+    person = {"first": first_name2, "last": last_name2}
+    return person
+
+musician_2 = build_person ("jimi", "hendrick")
+print(musician_2)
+
+#ADDING OPTIONAL PARAMETRE age
+
+def build_person1 (first_name3, last_name3, age=None): #assigning the special character None as a placeholder.
+    person2 = {"first": first_name3, "last": last_name3,}
+    if age:
+        person2["age"] = age
+    return person2
+
+musican_3 = build_person1("jimi", "hendrick", age=27)
+print(musican_3)
+
+#USING A FUNCTION WITH WHILE LOOP
+
+#def get_full_name (first_names, last_names):
+    #full_name = f"{first_names} {last_names}"
+    #return full_name.title()
+
+#while True:
+    #print("Please tell me your first name")
+    #print("(enter 'q' any time to quit)")
+
+    #f_name = input("First name: ")
+    #if f_name == "q":
+        #break
+    #l_name = input ("Last name: ")
+    #if l_name == "q":
+        #break
+
+    #formatted_name_s = get_full_name(f_name, l_name)
+    #print(f"hello, {formatted_name_s}!")
+    
+#PRACTICE CITY_COIUNTRY()
+
+def city_country(city, country):
+    print(f"{city}, {country}.")
+
+city_country("Madrid", "Spain")
+city_country("London", "UK")
+print(city_country)
+
+#make alubmn()
+
+def make_albumn(artist_name, albumn_title, no_of_songs=None):
+    albumn_details = {"artist": artist_name, "albumn": albumn_title}
+    if no_of_songs:
+        albumn_details["songs"] = no_of_songs
+    return(albumn_details)
+
+Maroon_5= make_albumn("Maroon 5", "Songs about Jane", no_of_songs="12")
+print(Maroon_5)
+
+#DICTIONARY PRACTICE
+
+#Storing information using dictionaries
+
+Person_1={}
+
+Person_1['Name']= 'Phoebe Lucas'
+Person_1['Age']= 33
+Person_1['Address']= 'Denia, Spain'
+
+print(Person_1)
+print(f"This is {Person_1['Name']}, her age is {Person_1['Age']} and she lives in {Person_1['Address']}")
+
+#LOOPING 
+
+Pizzas=['Margarita', '4 Quesos', 'Spicy',]
+for pizza in Pizzas:
+    print(f"{pizza.title()} contains lots of cheese")
+
+print("I love pizza") #outside the for loop
+
+#LOOPING IN A DICT
+
+#looping through all key:value pairs
+
+user_0={
+    'username': 'plucas',
+    'first' : 'phoebe',
+    'second': 'lucas',
+}
+
+for key, value in user_0.items(): #.items() is a method that returns a view object that displays dictionary key vlaue pairs as a tuple
+    print(f"\nkey: {key}") #makes sure there is a new line between 
+    print(f"value: {value}")
+
+#example 2
+
+favourite_movie={
+    'Phoebe': "Zero dark thirty",
+    'Patric': 'Mary Poppins',
+    'Lucy': 'The Sound of Music',
+}
+
+for person, movie in favourite_movie.items(): #you can use person and movie instead of key and value due to the order its put in
+    print(f"\n{person.title()}'s favourite movie is {movie.title()}")
+
+#LOOPING THROUGH KEYS IN A DICTIONARY
+
+for person in favourite_movie.keys(): #keys is actually default so no actually neccessary
+    print(person.title())
+
+friends=['Patric', 'Lucy']
+
+for person in favourite_movie.keys():
+    print(f"\n Hi {person.title()}")
+
+    if person in friends:
+        print(f"{person.title()}, I see you like the movie {movie.title()}")
+
+#example using loops and polling in dictionaries
+
+poll_names=['Sophie', 'Phoebe', 'Luigy', 'Joshua', 'Ben', 'Lily',]
+
+favourite_food={
+    'Sophie': 'chinese',
+    'Phoebe': 'tacos',
+    'Joshua': 'pizza',
+    'Luigy': 'steak',
+}
+
+for name, food in favourite_food.items():
+    print(f"\n {name.title()}'s favourite food is {food.title()}")
+    
+for name in poll_names:
+    if name in favourite_food.keys():
+        print(f"Thanks for taking our poll {name}!")
+    else:
+        print(f"{name}, please take our poll!")
+
+#NESTING
+
+#A list of dictionaries
+
+movie_1={'Name': "Jaws", 'Type': 'Thriller',}
+movie_2={'Name': 'Love Actually', 'Type': 'Comedy',}
+movie_3={'Name': 'The Notebook', 'Type': 'Romance',}
+
+movies=[movie_1, movie_2, movie_3]
+
+for movie in movies: #run through all the dictionaries in the list 
+    print(movie)
+
+#A LIST IN A DICTIONARY
+
+pizza={'crust': 'thick', 'toppings': ['tomatoes', 'cheese', 'ham'],}
+print(f"you ordered a {pizza['crust']} - crust pizza, with the following toppings:")
+
+for topping in pizza['toppings']:
+    print(f"\t{topping}") #\t means to write it in collumns
+
+# A DICTIONARY IN A DICTIONARY
+
+users={
+    'plucas':{
+        'first': 'phoebe',
+        'last': 'lucas',
+        'location': 'spain',
+        },
+    'pnovoa': {
+        'first':'patricio',
+        'last': 'novoa',
+        'location': 'spain',
+        },
+}
