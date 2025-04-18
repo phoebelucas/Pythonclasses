@@ -1,0 +1,55 @@
+class DataSourceConfig:
+    def __init__(self, source_name: str, file_path: str): 
+    
+        #Initializes a DataSourceConfig object with a name, file path, and cleaning status.
+    
+        self.source_name = source_name
+        self.file_path = file_path
+        self.is_cleaned = False  # Data is initially not cleaned
+        
+    def update_source_name(self, new_source_name): 
+        self.source_name = new_source_name
+
+    
+    
+    def clean_data(self):
+    
+        #Simulates the data cleaning process.
+        
+        print(f"Cleaning data from {self.source_name}...")
+        self.is_cleaned = True  # Mark data as cleaned
+        print("Data cleaning complete.")
+
+    def reload_data(self):
+        
+        #Simulates reloading the data source, which resets the cleaning status.
+        
+        print(f"Reloading data from {self.source_name}...")
+        self.is_cleaned = False  # Reset cleaning status
+        print("Data reloaded. Cleaning required.")
+
+    def get_source_info(self) -> str:
+        
+        #Returns a formatted string containing information about the data source.
+        
+        status = "Cleaned" if self.is_cleaned else "Not Cleaned"
+        return f"Source Name: {self.source_name}\nFile Path: {self.file_path}\nStatus: {status}"
+
+
+# Demonstration
+if __name__ == "__main__":
+    # Creating an instance of DataSourceConfig
+    data_source = DataSourceConfig("Sales Data", "/data/sales.csv")
+    data_source.update_source_name ("newname")
+    print(data_source.source_name)
+
+    # Retrieving initial data source info
+    print(data_source.get_source_info())
+
+    # Cleaning the data
+    data_source.clean_data()
+    print(data_source.get_source_info())
+
+  # Reloading the data
+    data_source.reload_data()
+    print(data_source.get_source_info())
